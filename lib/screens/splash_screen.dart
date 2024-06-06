@@ -2,6 +2,7 @@ import 'package:chat_app/api/apis.dart';
 import 'package:chat_app/main.dart';
 import 'package:chat_app/screens/auth/login_screen.dart';
 import 'package:chat_app/screens/home_screen.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -33,6 +34,9 @@ class _LoginScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     mq = MediaQuery.of(context).size;
+    if (kDebugMode) {
+      print('MQ  $mq');
+    }
     return Scaffold(
       //app bar//
       appBar: AppBar(

@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:chat_app/api/apis.dart';
 import 'package:chat_app/models/chat_user_model.dart';
 import 'package:chat_app/widgets/chat_user_card.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
