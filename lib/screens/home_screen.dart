@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:chat_app/api/apis.dart';
 import 'package:chat_app/models/chat_user_model.dart';
+import 'package:chat_app/screens/auth/profile_screen.dart';
 import 'package:chat_app/widgets/chat_user_card.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -26,7 +27,16 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('We Chat'),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => ProfileScreenPage(
+                              user: listOfUsers[0],
+                            )));
+              },
+              icon: const Icon(Icons.more_vert)),
         ],
       ),
 

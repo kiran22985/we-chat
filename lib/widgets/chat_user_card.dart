@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:chat_app/main.dart';
 import 'package:chat_app/models/chat_user_model.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ChatUserCard extends StatefulWidget {
@@ -14,6 +15,12 @@ class ChatUserCard extends StatefulWidget {
 class _ChatUserCardState extends State<ChatUserCard> {
   @override
   Widget build(BuildContext context) {
+    if (kDebugMode) {
+      print('name test ${widget.user.name}');
+      print('image test ${widget.user.image}');
+      print('about test ${widget.user.about}');
+    }
+
     return Card(
       elevation: 0.5,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -21,15 +28,19 @@ class _ChatUserCardState extends State<ChatUserCard> {
       child: InkWell(
           onTap: () {},
           child: ListTile(
-            leading: ClipRRect(
-              borderRadius: BorderRadius.circular(mq.height * 0.3),
-              child: CachedNetworkImage(
-                width: mq.height * 0.55,
-                height: mq.height * 0.55,
-                imageUrl: widget.user.image,
-                // placeholder: (context, url) => CircularProgressIndicator(),
-                errorWidget: (context, url, error) => const CircleAvatar(
-                  child: Icon(CupertinoIcons.person),
+            leading: SizedBox(
+              width: 70,
+              height: 50,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(mq.height * 0.3),
+                child: CachedNetworkImage(
+                  width: mq.height * 0.55,
+                  height: mq.height * 0.55,
+                  imageUrl: widget.user.image,
+                  // placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => const CircleAvatar(
+                    child: Icon(CupertinoIcons.person),
+                  ),
                 ),
               ),
             ),
